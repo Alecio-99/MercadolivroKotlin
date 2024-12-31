@@ -3,10 +3,9 @@ package com.mercadodolivro.service
 import com.mercadodolivro.entity.CustomeEntity
 import com.mercadodolivro.repository.CustomeRepository
 import org.springframework.stereotype.Service
-import java.nio.file.NoSuchFileException
 
 @Service
-class service(
+class ServiceCustome(
     val customeRepository: CustomeRepository
 ) {
 
@@ -21,7 +20,7 @@ class service(
     }
 
     fun update(custome: CustomeEntity){
-        if(!customeRepository.existsById(custome.id)){
+        if(!customeRepository.existsById(custome.id!!)){
             throw Exception("Customer with ID not found")
         }
         customeRepository.save(custome)
