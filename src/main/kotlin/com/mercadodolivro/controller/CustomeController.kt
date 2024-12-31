@@ -1,0 +1,23 @@
+package com.mercadodolivro.controller
+
+import com.mercadodolivro.controller.request.PostCustomeRequest
+import com.mercadodolivro.entity.CustomeEntity
+import org.springframework.http.HttpStatus
+import org.springframework.web.bind.annotation.*
+
+@RestController
+@RequestMapping("/custome")
+class CustomeController {
+
+    @GetMapping
+    fun getCustome(): CustomeEntity {
+        return CustomeEntity(1, "Alecio", "alecio@gamil.com")
+    }
+
+    @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
+    fun create(@RequestBody custome: PostCustomeRequest) {
+        println(custome)
+    }
+
+}
